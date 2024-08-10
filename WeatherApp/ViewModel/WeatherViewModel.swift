@@ -11,7 +11,7 @@ class WeatherViewModel: ObservableObject {
     @Published var weatherData: WeatherResponse?
     
     func fetchWeatherData(place: String) {
-        let url = "http://api.weatherapi.com/v1/current.json?key=9c5f02690a0b45dcbcb133904241008&q=\(place)&aqi=no"
+        let url = "https://api.weatherapi.com/v1/current.json?key=9c5f02690a0b45dcbcb133904241008&q=\(place)&aqi=no"
         
         guard let safeUrl = URL(string: url) else {
             return print("invalid URL")
@@ -26,10 +26,7 @@ class WeatherViewModel: ObservableObject {
             
             do {
                 let weather = try decoder.decode(WeatherResponse.self, from: data)
-                print("Successfully Decoded the data")
-                DispatchQueue.main.async {
-                    self?.weatherData = weather
-                }
+                DispatchQueue.main.async { self?.weatherData = weather }
                 print(self?.weatherData?.location.name ?? "!")
             } catch {
                 print("Failed to decode the data given")
