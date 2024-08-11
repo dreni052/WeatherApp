@@ -14,6 +14,7 @@
 		59AD085B2C67834800313D68 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AD085A2C67834800313D68 /* WeatherModel.swift */; };
 		59AD085D2C678B9300313D68 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AD085C2C678B9300313D68 /* WeatherViewModel.swift */; };
 		59AD08612C680ECA00313D68 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 59AD08602C680ECA00313D68 /* SDWebImageSwiftUI */; };
+		59AD08632C69417F00313D68 /* UserLocalisationVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AD08622C69417F00313D68 /* UserLocalisationVm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		59AD085A2C67834800313D68 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		59AD085C2C678B9300313D68 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		59AD085E2C67B98E00313D68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		59AD08622C69417F00313D68 /* UserLocalisationVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalisationVm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				59AD085C2C678B9300313D68 /* WeatherViewModel.swift */,
+				59AD08622C69417F00313D68 /* UserLocalisationVm.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59AD084B2C66B94B00313D68 /* WeatherView.swift in Sources */,
+				59AD08632C69417F00313D68 /* UserLocalisationVm.swift in Sources */,
 				59AD085D2C678B9300313D68 /* WeatherViewModel.swift in Sources */,
 				59AD085B2C67834800313D68 /* WeatherModel.swift in Sources */,
 				59AD08492C66B94B00313D68 /* WeatherAppApp.swift in Sources */,

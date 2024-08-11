@@ -10,6 +10,7 @@ import SDWebImageSwiftUI
 
 struct WeatherView: View {
     @StateObject var viewModel = WeatherViewModel()
+    @StateObject var userLocaitonVm = UserLocalisationVm()
     @State private var searchBtn: Bool = false
     @State private var cityTxtLabel: String = ""
     
@@ -28,11 +29,11 @@ struct WeatherView: View {
             } .padding(.vertical)
             HStack(spacing: 60) {
                 Text(viewModel.weatherData?.location.name ?? "City")
-                    .frame(width: 100, height: 35)
+                    .frame(width: 130, height: 35)
                     .foregroundColor(.black)
                     .font(.bold(.headline)())
                 Text(viewModel.weatherData?.location.country ?? "Country")
-                    .frame(width: 100, height: 35)
+                    .frame(width: 130, height: 35)
                     .foregroundColor(.black)
                     .font(.bold(.headline)())
             } .padding(.vertical, 20)
@@ -81,14 +82,15 @@ struct WeatherView: View {
         }
         .padding()
         .onAppear() {
-            viewModel.fetchWeatherData(place: "tirana")
+            viewModel.fetchWeatherData(place: userLocaitonVm.currentCity)
+            print(userLocaitonVm.currentCity)
         }
         .onChange(of: searchBtn) { newValue in
             viewModel.fetchWeatherData(place: cityTxtLabel)
         }
         .alert(isPresented: $viewModel.hasError, error: viewModel.error) {
             Button {
-                viewModel.fetchWeatherData(place: cityTxtLabel)
+                viewModel.fetchWeatherData(place: userLocaitonVm.currentCity)
             } label: {
                 Text("retry")
             }
