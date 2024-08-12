@@ -10,8 +10,8 @@ import SDWebImageSwiftUI
 
 struct WeatherView: View {
     @StateObject var viewModel = WeatherViewModel()
-    @StateObject var userLocaitonVm = UserLocalisationVm()
-    @State private var searchBtn: Bool = false
+    @StateObject var userLocationVm = UserLocalisationVm()
+    @State private var searchButton: Bool = false
     @State private var cityTxtLabel: String = ""
     
     var body: some View {
@@ -21,19 +21,19 @@ struct WeatherView: View {
                     .frame(width: 250, height: 30, alignment: .center)
                     .border(Color.black, width: 2)
                 Button("Get Weather") {
-                    searchBtn.toggle()
+                    searchButton.toggle()
                 }
                 .frame(width: 110, height: 30)
                 .foregroundColor(Color.black)
                 .background(Color.blue.opacity(0.7))
             } .padding(.vertical)
-            HStack(spacing: 60) {
+            HStack(spacing: 35) {
                 Text(viewModel.weatherData?.location.name ?? "City")
-                    .frame(width: 130, height: 35)
+                    .frame(width: 150)
                     .foregroundColor(.black)
                     .font(.bold(.headline)())
                 Text(viewModel.weatherData?.location.country ?? "Country")
-                    .frame(width: 130, height: 35)
+                    .frame(width: 150)
                     .foregroundColor(.black)
                     .font(.bold(.headline)())
             } .padding(.vertical, 20)
@@ -69,7 +69,7 @@ struct WeatherView: View {
                     .foregroundColor(.black)
                     .font(.bold(.headline)())
             } .padding(.vertical, 20)
-            Text(viewModel.weatherData?.current.condition.text ?? "Condition")
+            Text(viewModel.weatherData?.current.condition.text ?? "NoCondition")
                 .frame(width: 100)
                 .foregroundColor(.black)
                 .font(.bold(.headline)())
@@ -82,15 +82,15 @@ struct WeatherView: View {
         }
         .padding()
         .onAppear() {
-            viewModel.fetchWeatherData(place: userLocaitonVm.currentCity)
-            print(userLocaitonVm.currentCity)
+            viewModel.fetchWeatherData(place: userLocationVm.currentCity)
+            print(userLocationVm.currentCity)
         }
-        .onChange(of: searchBtn) { newValue in
+        .onChange(of: searchButton) { newValue in
             viewModel.fetchWeatherData(place: cityTxtLabel)
         }
         .alert(isPresented: $viewModel.hasError, error: viewModel.error) {
             Button {
-                viewModel.fetchWeatherData(place: userLocaitonVm.currentCity)
+                viewModel.fetchWeatherData(place: userLocationVm.currentCity)
             } label: {
                 Text("retry")
             }

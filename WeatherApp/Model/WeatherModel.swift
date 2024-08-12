@@ -4,6 +4,7 @@
 //
 //  Created by Dren Uruqi on 10.8.24.
 //
+// This is the Model part of the app which matches JSON Data to display the data to the User
 
 import Foundation
 
